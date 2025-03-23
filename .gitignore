@@ -171,3 +171,4 @@ web3-dapp/config/secrets.json
 .pypirc
 web3-dapp/subquery/src/__tests__/
 data/*
+/API_ENV.py

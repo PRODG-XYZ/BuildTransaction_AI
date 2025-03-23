@@ -39,7 +39,8 @@ private_key = os.getenv("PRIVATE_KEY")
 infura_project_id = os.getenv("INFURA_PROJECT_ID")
 frontend_domain = os.getenv("FRONTEND_DOMAIN")
 frontend_base_url = os.getenv("FRONTEND_BASE_URL")
-
+deepseek_domain = os.getenv("DEEPSEEK_API_URL")
+deepseek_key = os.getenv("DEEPSEEK_KEY")
 
 model_specifications = {
     'infura_project_id': infura_project_id,
