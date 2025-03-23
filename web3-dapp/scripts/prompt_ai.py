@@ -45,7 +45,7 @@ def send_prompt(
                 "role": "system",
                 "content": ''.join(
                     [
-                        "Generate the structure of the process to execute a transaction on solana using the following format, where each component is represented as a shape. For each shape fill in the '[]' parts. '{shape: [], data: []};' ",
+                        "Generate the structure of the process to execute a transaction on solana using the following format, where each component is represented as a shape. For each shape fill in the '[]' parts. '{shape: [], data: []}' ",
                         "for each step of the transaction, use these predefined shapes as aliases for the following steps: \n - rectangle: on-chain action for verification and validation, \n - diamond: real time data feed, \n - circle: user's interaction",
                         f"The transaction to build is {position}ing {amount} {ticker}, where the slippage is set as {slippage}%"]
                 ),
@@ -58,6 +58,33 @@ def send_prompt(
     print(response.choices[0].message.content)
     return response.choices[0].message.content
     
+def prompt_reformatter_(
+    output: str,
+):
+    """
+    
+    :param output:
+    :return:
+    """
+    split_out = output.split("`", -1)
+    shapes_list = []
+    info_list = []
+    for i in range(
+        len(
+            split_out
+        ) - 1
+    ):
+        if i % 2 != 0:
+            print(
+                i,
+                split_out[i]
+            )
+            shapes_list.append(split_out[i])
+        else:
+            info_list.append(split_out[i])
+    
+    return shapes_list
+
 if __name__ == '__main__':
     
     output = send_prompt(
@@ -67,4 +94,5 @@ if __name__ == '__main__':
         ticker='SOL/USDC',
         slippage=1,
     )
+    shapes_list = prompt_reformatter_(output)
     breakpoint()
