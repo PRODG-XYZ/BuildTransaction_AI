@@ -29,7 +29,7 @@ python-dotenv==1.0.1
 pyunormalize==16.0.0
 pywin32==308
 regex==2024.11.6
-requests==2.32.3
+requests==2.32.4
 rlp==4.1.0
 toolz==1.0.0
 types-requests==2.32.0.20241016
